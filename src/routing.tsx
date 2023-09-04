@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { About, Error404, Home, Info } from './pages';
 import { Container } from './widgets';
 
+//TODO: Сменить на CreateRouter (или типа того)
 export const Routing = () => {
   return (
     <Routes>
