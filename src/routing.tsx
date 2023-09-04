@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home, Info, About, Error404 } from './pages';
+import { About, Error404, Home, Info } from './pages';
 import { Container } from './widgets';
 
 export const Routing = () => {

@@ -9,7 +9,8 @@ const MenuContainer = styled.div({
   justifyContent: 'space-between',
   alignItems: 'center',
   width: '100%',
-  padding: '20px 10px',
+  padding: '10px 10px',
+  borderBottom: '1px solid #1976d2',
 });
 
 const Navigation = styled.div({
