@@ -1,12 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getAvailableLanguages, getStaticInterfaceData } from '../../api';
 import { LangListDTO } from '../../api/dto';
-
-export interface LangType {
-  lng: string;
-  lng_name: string;
-}
-
 export const fetchStaticInterfaceData = createAsyncThunk(
   'main/fetchStaticInterfaceData',
   async (locale: string) => {
@@ -14,9 +8,7 @@ export const fetchStaticInterfaceData = createAsyncThunk(
   },
 );
 export const initApp = createAsyncThunk('main/initApp', async () => {
-  return {
-    lngList: await getAvailableLanguages(),
-  };
+  return await getAvailableLanguages();
 });
 
 export interface MainState {
@@ -24,7 +16,7 @@ export interface MainState {
   title: string | null;
   text: string | null;
   isLoading: boolean;
-  langList: Array<LangType>;
+  langList: Array<LangListDTO>;
   errCode: number | null;
   errMessage: string | null;
 }
