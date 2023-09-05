@@ -1,5 +1,14 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Page } from '../entities';
+import { useGetAbout, useGetHome } from '../shared/api';
+import { initCounter } from '../shared/redux';
 
 export const Home = () => {
-  return <Page title="title" text="text" />;
+  const { result, isLoading } = useGetHome();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(initCounter(result?.counter));
+  }, [result?.counter]);
+  return <Page title={result?.title} text={result?.text} isLoading={isLoading} />;
 };

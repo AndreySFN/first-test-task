@@ -1,4 +1,4 @@
-export interface LangListDTO {
+export interface LangDTO {
   id: number;
   lng: string;
   lng_name: string;

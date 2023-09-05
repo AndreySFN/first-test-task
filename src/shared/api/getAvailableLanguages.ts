@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { LangListDTO } from './dto';
+import { LangDTO } from './dto';
 import { Endpoints } from './endpoints';
 
-export const getAvailableLanguages = (): Promise<LangListDTO> =>
+export const getAvailableLanguages = (): Promise<LangDTO> =>
   axios
-    .get<LangListDTO>(Endpoints.LANG_LIST(), {
+    .get<LangDTO>(Endpoints.LANG_LIST(), {
       baseURL: Endpoints.BASE_URL(),
     })
     .then(({ data }) => data);

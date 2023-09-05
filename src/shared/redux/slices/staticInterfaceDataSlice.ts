@@ -5,7 +5,7 @@ import { StaticInterfaceDataDTO } from '../../api/dto';
 
 export const fetchStaticInterfaceData = createAsyncThunk(
   'main/fetchStaticInterfaceData',
-  async (locale: string) => {
+  async (locale?: string) => {
     return await getStaticInterfaceData(locale);
   },
 );
@@ -21,7 +21,7 @@ const staticInterfaceSlice = createSlice<
   StaticInterfaceDataState,
   SliceCaseReducers<StaticInterfaceDataState>
 >({
-  name: 'main',
+  name: 'staticInterfaceData',
   initialState: {
     counter: null,
     text: '',
@@ -30,7 +30,7 @@ const staticInterfaceSlice = createSlice<
   } as StaticInterfaceDataState,
   reducers: {},
   extraReducers: {
-    [fetchStaticInterfaceData.pending]: state => {
+    [fetchStaticInterfaceData.pending]: (state: StaticInterfaceDataState) => {
       state.isLoading = true;
     },
     [fetchStaticInterfaceData.fulfilled]: (
@@ -41,10 +41,16 @@ const staticInterfaceSlice = createSlice<
       state.title = action.payload.title;
       state.isLoading = false;
     },
-    [fetchStaticInterfaceData.rejected]: state => {
+    [fetchStaticInterfaceData.rejected]: (state: StaticInterfaceDataState) => {
       state.isLoading = false;
     },
   },
 });
 
 export const staticInterfaceReducer = staticInterfaceSlice.reducer;
+
+//TODO типизация, поменять названия
+export const staticInterfaceSelectors = {
+  text: state => state.staticInterfaceData.text,
+  title: state => state.staticInterfaceData.title,
+};

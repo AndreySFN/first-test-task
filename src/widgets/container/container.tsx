@@ -1,8 +1,11 @@
 import { Box } from '@mui/material';
-import { Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Outlet, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Counter } from '../../entities';
 import { Menu } from '../../features';
+import { fetchLangList, fetchStaticInterfaceData, staticInterfaceSelectors } from '../../shared/redux';
 
 const MainContainer = styled.div({
   width: '100%',
@@ -14,10 +17,16 @@ const MainContainer = styled.div({
 });
 
 export const Container = () => {
+  const dispatch = useDispatch();
+  const { locale } = useParams();
+  useEffect(() => {
+    dispatch(fetchLangList());
+    dispatch(fetchStaticInterfaceData(locale));
+  }, []);
   return (
     <MainContainer>
       <>
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
           <Menu />
           <Outlet />
         </Box>

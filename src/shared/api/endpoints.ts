@@ -1,6 +1,6 @@
 export const Endpoints: Record<string, (l?: string) => string> = {
   BASE_URL: () => 'https://test012.lagutin.com/api',
-  LANG_LIST: () => '/lnglist',
+  LANG_LIST: () => '/lnglist/',
   HOME: locale => `/${locale}/home/`,
   INFO: locale => `/${locale}/info/`,
   ABOUT: locale => `/${locale}/about/`,

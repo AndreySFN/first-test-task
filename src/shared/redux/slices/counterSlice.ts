@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SliceCaseReducers } from '@reduxjs/toolkit/src/createSlice';
 
-interface CounterState {
+export interface CounterState {
   value: number | null;
 }
 
@@ -25,3 +25,7 @@ const counterSlice = createSlice<CounterState, SliceCaseReducers<CounterState>>(
 
 export const counterReducer = counterSlice.reducer;
 export const { initCounter, increment, decrement } = counterSlice.actions;
+//TODO поправить
+export const counterSelectors = {
+  counter: (state: CounterState) => state.counter.value,
+};
