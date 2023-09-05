@@ -1,0 +1,1 @@
+export { useChangeLocaleParam } from './useChangeLocaleParam';

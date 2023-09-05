@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Page } from '../entities';
-import { useGetAbout, useGetHome } from '../shared/api';
+import { useGetHome } from '../shared/api';
 import { initCounter } from '../shared/redux';
 
 export const Home = () => {
