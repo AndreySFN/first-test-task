@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { mainReducer } from './slices';
+import { counterReducer, languageReducer, staticInterfaceReducer } from './slices';
 
 const rootReducer = combineReducers({
-  main: mainReducer,
+  staticInterfaceData: staticInterfaceReducer,
+  counter: counterReducer,
+  language: languageReducer,
 });
 
 export const store = configureStore({
