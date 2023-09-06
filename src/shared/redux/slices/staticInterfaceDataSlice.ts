@@ -51,6 +51,6 @@ export const staticInterfaceReducer = staticInterfaceSlice.reducer;
 
 //TODO типизация, поменять названия
 export const staticInterfaceSelectors = {
-  text: state => state.staticInterfaceData.text,
-  title: state => state.staticInterfaceData.title,
+  text: (state): string => state.staticInterfaceData.text,
+  title: (state): string => state.staticInterfaceData.title,
 };

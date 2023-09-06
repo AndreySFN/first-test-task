@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { LangDTO } from '../../../shared/api/dto';
-import { useChangeLocaleParam } from '../hooks';
 import { languageSelectors } from '../../../shared/redux';
+import { useChangeLocaleParam } from '../hooks';
 
 export const LanguageChanger = () => {
   const { locale } = useParams();

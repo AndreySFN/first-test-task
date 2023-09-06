@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Endpoints } from './endpoints';
 
+//TODO: отлов ошибок. Переформировать API
 export const useApi = <T>(url: string) => {
   const [result, setResult] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState(true);

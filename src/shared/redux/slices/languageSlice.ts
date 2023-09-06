@@ -1,6 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SliceCaseReducers } from '@reduxjs/toolkit/src/createSlice';
-import { getAvailableLanguages } from '../../api';
 import { LangDTO } from '../../api/dto';
 
 export interface LanguageSliceState {
@@ -9,10 +8,6 @@ export interface LanguageSliceState {
   errCode: number | null;
   errMessage: string | null;
 }
-
-export const fetchLangList = createAsyncThunk('language/fetchLangList', async () => {
-  return await getAvailableLanguages();
-});
 
 const languageSlice = createSlice<LanguageSliceState, SliceCaseReducers<LanguageSliceState>>({
   name: 'language',
@@ -29,18 +24,6 @@ const languageSlice = createSlice<LanguageSliceState, SliceCaseReducers<Language
       }, {} as LangDTO).lng;
     },
   },
-  extraReducers: {
-    [fetchLangList.pending]: (state: LanguageSliceState) => {
-      state.isLoading = true;
-    },
-    [fetchLangList.fulfilled]: (state: LanguageSliceState, action: PayloadAction<LangDTO>) => {
-      state.isLoading = false;
-      state.langList = action.payload;
-    },
-    [fetchLangList.rejected]: (state: LanguageSliceState) => {
-      state.isLoading = false;
-    },
-  },
 });
 
 export const languageReducer = languageSlice.reducer;
@@ -48,5 +31,6 @@ export const { setLangList } = languageSlice.actions;
 
 // TODO Исправить типизацию
 export const languageSelectors = {
-  langList: state => state.language.langList,
+  langList: (state): Array<LangDTO> => state.language.langList,
+  isLoading: (state): boolean => state.language.isLoading,
 };

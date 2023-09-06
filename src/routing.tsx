@@ -1,19 +1,46 @@
-import { Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { About, Error404, Home, Info } from './pages';
-import { Container } from './widgets';
+import { Container, Initializer } from './widgets';
 
 //TODO: Сменить на CreateRouter (или типа того)
 export const Routing = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Container />}>
-        <Route path=":locale">
-          <Route path="" element={<Home />} />
-          <Route path="info" element={<Info />} />
-          <Route path="about" element={<About />} />
-        </Route>
-      </Route>
-      <Route path="*" element={<Error404 />} />
-    </Routes>
+    <RouterProvider
+      router={createBrowserRouter([
+        {
+          path: '/',
+          element: <Initializer />,
+          children: [
+            {
+              path: ':locale',
+              element: <Container />,
+              children: [
+                {
+                  path: '',
+                  element: <Home />,
+                },
+                {
+                  path: 'about',
+                  element: <About />,
+                },
+                {
+                  path: 'info',
+                  element: <Info />,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          path: '/404',
+          element: <Error404 />,
+        },
+        {
+          path: '*',
+          element: <Error404 />,
+        },
+      ])}
+    />
   );
 };

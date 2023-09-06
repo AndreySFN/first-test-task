@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { Counter } from '../../entities';
-import { Menu } from '../../features';
-import { fetchLangList, fetchStaticInterfaceData } from '../../shared/redux';
+import { Counter } from '../entities';
+import { Menu } from '../features';
+import { fetchStaticInterfaceData } from '../shared/redux';
 
 const MainContainer = styled.div({
   width: '100%',
@@ -19,9 +19,6 @@ const MainContainer = styled.div({
 export const Container = () => {
   const dispatch = useDispatch();
   const { locale } = useParams();
-  useEffect(() => {
-    dispatch(fetchLangList());
-  }, []);
   useEffect(() => {
     dispatch(fetchStaticInterfaceData(locale));
   }, [locale]);

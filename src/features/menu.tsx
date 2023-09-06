@@ -25,6 +25,7 @@ export const Menu = () => {
   return (
     <MenuContainer>
       <Navigation>
+        {/*TODO: Поменять на Link?*/}
         <Button variant="text" onClick={() => navigate(`/${locale}`)}>
           home
         </Button>

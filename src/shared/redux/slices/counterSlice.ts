@@ -27,5 +27,5 @@ export const counterReducer = counterSlice.reducer;
 export const { initCounter, increment, decrement } = counterSlice.actions;
 //TODO поправить
 export const counterSelectors = {
-  counter: (state: CounterState) => state.counter.value,
+  counter: (state: CounterState): number => state.counter.value,
 };
