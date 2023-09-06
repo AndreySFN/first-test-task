@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SliceCaseReducers } from '@reduxjs/toolkit/src/createSlice';
-import { getStaticInterfaceData } from '../../api';
-import { StaticInterfaceDataDTO } from '../../api/dto';
+import { getStaticInterfaceData } from '../shared/api';
+import { StaticInterfaceDataDTO } from '../shared/api/dto';
 
 export const fetchStaticInterfaceData = createAsyncThunk(
   'main/fetchStaticInterfaceData',

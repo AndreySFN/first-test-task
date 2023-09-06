@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Page } from '../entities';
 import { useGetAbout } from '../shared/api';
-import { initCounter } from '../shared/redux';
+import { initCounter } from '../store';
 
 export const About = () => {
   const { result, isLoading } = useGetAbout();

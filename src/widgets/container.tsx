@@ -5,7 +5,7 @@ import { Outlet, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Counter } from '../entities';
 import { Menu } from '../features';
-import { fetchStaticInterfaceData } from '../shared/redux';
+import { fetchStaticInterfaceData } from '../store';
 
 const MainContainer = styled.div({
   width: '100%',

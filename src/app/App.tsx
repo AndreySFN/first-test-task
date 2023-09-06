@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
+import { store } from './config';
 import { Routing } from './routing';
-import { store } from './shared/redux';
 
 function App() {
   return (

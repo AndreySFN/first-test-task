@@ -2,7 +2,7 @@ import { Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { languageSelectors } from '../shared/redux';
+import { languageSelectors } from '../store/languageSlice';
 
 const ErrprContainer = styled.div({
   width: '100%',

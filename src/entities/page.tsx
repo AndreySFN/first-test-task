@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { staticInterfaceSelectors } from '../shared/redux';
+import { staticInterfaceSelectors } from '../store/';
 import { FullSizeSpinner } from './full-size-spinner';
 
 export interface PageProps {

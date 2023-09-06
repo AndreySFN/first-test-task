@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import { Outlet, useParams } from 'react-router-dom';
 import { FullSizeSpinner } from '../entities/full-size-spinner';
 import { getAvailableLanguages } from '../shared/api';
-import { setLangList } from '../shared/redux';
+import { setLangList } from '../store';
 
 export const Initializer = () => {
   const dispatch = useDispatch();

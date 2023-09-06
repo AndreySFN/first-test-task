@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SliceCaseReducers } from '@reduxjs/toolkit/src/createSlice';
-import { LangDTO } from '../../api/dto';
+import { LangDTO } from '../shared/api/dto';
 
 export interface LanguageSliceState {
   currentLang: string | null;
