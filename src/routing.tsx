@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { About, Error404, Home, Info } from './pages';
+import { Error } from './pages/error';
 import { Container, Initializer } from './widgets';
 
 //TODO: Сменить на CreateRouter (или типа того)
@@ -35,6 +36,10 @@ export const Routing = () => {
         {
           path: '/404',
           element: <Error404 />,
+        },
+        {
+          path: '/error',
+          element: <Error />,
         },
         {
           path: '*',

@@ -3,34 +3,31 @@ import { SliceCaseReducers } from '@reduxjs/toolkit/src/createSlice';
 import { LangDTO } from '../../api/dto';
 
 export interface LanguageSliceState {
-  defaultLang: string;
+  currentLang: string | null;
   langList: Array<LangDTO>;
-  errCode: number | null;
-  errMessage: string | null;
 }
 
 const languageSlice = createSlice<LanguageSliceState, SliceCaseReducers<LanguageSliceState>>({
   name: 'language',
   initialState: {
     langList: [],
-    errCode: null,
-    errMessage: null,
+    currentLang: null,
   },
   reducers: {
+    setCurrentLang: (state, action: PayloadAction<string>) => {
+      state.currentLang = action.payload;
+    },
     setLangList: (state, action: PayloadAction<Array<LangDTO>>) => {
       state.langList = action.payload;
-      state.defaultLang = action.payload.reduce((acc, langDto) => {
-        return langDto.lng_default >= acc?.lng_default ? langDto : acc;
-      }, {} as LangDTO).lng;
     },
   },
 });
 
 export const languageReducer = languageSlice.reducer;
-export const { setLangList } = languageSlice.actions;
+export const { setLangList, setCurrentLang } = languageSlice.actions;
 
 // TODO Исправить типизацию
 export const languageSelectors = {
   langList: (state): Array<LangDTO> => state.language.langList,
-  isLoading: (state): boolean => state.language.isLoading,
+  currentLang: (state): string => state.language.currentLang,
 };
