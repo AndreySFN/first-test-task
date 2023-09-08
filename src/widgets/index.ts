@@ -1,2 +1,1 @@
-export * from '../pages/container';
-export * from '../pages/initializer/ui/Initializer';
+export * from './menu';

@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { Counter } from 'entities';
-import { Menu } from 'features';
+import { Menu } from 'widgets';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet, useParams } from 'react-router-dom';
