@@ -1,4 +1,4 @@
-import { About, Container, Error, Error404, Home, Info, Initializer } from 'pages';
+import { About, Container, Error404, Home, Info, Initializer, ServerError } from 'pages';
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -36,7 +36,7 @@ export const Routing = () => {
         },
         {
           path: '/error',
-          element: <Error />,
+          element: <ServerError />,
         },
         {
           path: '*',

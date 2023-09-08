@@ -1,5 +1,15 @@
 import i18next from 'i18next';
-import { counterDe, counterEn, counterRu, menuDe, menuEn, menuRu } from 'shared/constants/locales';
+import {
+  counterDe,
+  counterEn,
+  counterRu,
+  errorDe,
+  errorEn,
+  errorRu,
+  menuDe,
+  menuEn,
+  menuRu,
+} from 'shared/constants/locales';
 import {
   languageChangerDe,
   languageChangerEn,
@@ -8,12 +18,14 @@ import {
 
 void i18next.init(
   {
+    fallbackLng: 'en',
     resources: {
       en: {
         translation: {
           menu: menuEn,
           counter: counterEn,
           language: languageChangerEn,
+          error: errorEn,
         },
       },
       ru: {
@@ -21,6 +33,7 @@ void i18next.init(
           menu: menuRu,
           counter: counterRu,
           language: languageChangerRu,
+          error: errorRu,
         },
       },
       de: {
@@ -28,6 +41,7 @@ void i18next.init(
           menu: menuDe,
           counter: counterDe,
           language: languageChangerDe,
+          error: errorDe,
         },
       },
     },

@@ -1,6 +1,6 @@
 import { Button, Typography } from '@mui/material';
 import i18next from 'i18next';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { counterSelectors, decrement, increment } from 'store';
 import styled from 'styled-components';

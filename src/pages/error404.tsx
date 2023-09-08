@@ -1,21 +1,10 @@
-import { Typography } from '@mui/material';
-import React from 'react';
-import styled from 'styled-components';
+import { Error } from 'entities';
+import i18next from 'i18next';
 
-const ErrorLayout = styled.div({
-  width: '100%',
-  height: '100%',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexDirection: 'column',
-});
-export const Error404 = () => {
-  return (
-    <ErrorLayout>
-      <Typography variant={'h3'}>Ууууупс... 404</Typography>
-      <Typography variant="body1">Кажется вы попали на несуществующую страницу</Typography>
-      <Typography variant="caption">Проверьте правильность введённого URL</Typography>
-    </ErrorLayout>
-  );
-};
+export const Error404 = () => (
+  <Error
+    header={i18next.t('error.error404')}
+    caption={i18next.t('error.caption404')}
+    advice={i18next.t('error.advice404')}
+  />
+);
