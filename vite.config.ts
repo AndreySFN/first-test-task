@@ -12,6 +12,7 @@ export default defineConfig({
       widgets: path.resolve(__dirname, './src/widgets'),
       pages: path.resolve(__dirname, './src/pages'),
       store: path.resolve(__dirname, './src/store'),
+      app: path.resolve(__dirname, './src/app'),
     }
   },
   plugins: [

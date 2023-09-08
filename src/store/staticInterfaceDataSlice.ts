@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SliceCaseReducers } from '@reduxjs/toolkit/src/createSlice';
+import { RootState } from 'app';
 import { getStaticInterfaceData, StaticInterfaceDataDTO } from 'shared/api';
 
 export const fetchStaticInterfaceData = createAsyncThunk(
   'main/fetchStaticInterfaceData',
-  async (locale?: string) => {
+  async (locale: string | undefined) => {
     return await getStaticInterfaceData(locale);
   },
 );
@@ -28,28 +29,27 @@ const staticInterfaceSlice = createSlice<
     isLoading: false,
   } as StaticInterfaceDataState,
   reducers: {},
-  extraReducers: {
-    [fetchStaticInterfaceData.pending]: (state: StaticInterfaceDataState) => {
+  extraReducers: builder => {
+    builder.addCase(fetchStaticInterfaceData.pending, (state: StaticInterfaceDataState) => {
       state.isLoading = true;
-    },
-    [fetchStaticInterfaceData.fulfilled]: (
-      state: StaticInterfaceDataState,
-      action: PayloadAction<StaticInterfaceDataDTO>,
-    ) => {
-      state.text = action.payload.text;
-      state.title = action.payload.title;
+    });
+    builder.addCase(
+      fetchStaticInterfaceData.fulfilled,
+      (state: StaticInterfaceDataState, action: PayloadAction<StaticInterfaceDataDTO>) => {
+        state.text = action.payload.text;
+        state.title = action.payload.title;
+        state.isLoading = false;
+      },
+    );
+    builder.addCase(fetchStaticInterfaceData.rejected, (state: StaticInterfaceDataState) => {
       state.isLoading = false;
-    },
-    [fetchStaticInterfaceData.rejected]: (state: StaticInterfaceDataState) => {
-      state.isLoading = false;
-    },
+    });
   },
 });
 
 export const staticInterfaceReducer = staticInterfaceSlice.reducer;
 
-//TODO типизация, поменять названия
 export const staticInterfaceSelectors = {
-  text: (state): string => state.staticInterfaceData.text,
-  title: (state): string => state.staticInterfaceData.title,
+  text: (state: RootState): string | null => state.staticInterfaceData.text,
+  title: (state: RootState): string | null => state.staticInterfaceData.title,
 };

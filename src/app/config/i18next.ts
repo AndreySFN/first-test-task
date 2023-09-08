@@ -46,8 +46,7 @@ void i18next.init(
       },
     },
   },
-  (err, t) => {
-    if (err) return console.log('something went wrong loading', err);
-    t('key'); // -> same as i18next.t
+  err => {
+    if (err) return console.error(err);
   },
 );

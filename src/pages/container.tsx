@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+import { AppDispatch } from 'app';
 import { Counter } from 'entities';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -17,10 +18,10 @@ const MainContainer = styled.div({
 });
 
 export const Container = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { locale } = useParams();
   useEffect(() => {
-    dispatch(fetchStaticInterfaceData(locale));
+    void dispatch(fetchStaticInterfaceData(locale));
   }, [locale]);
   return (
     <MainContainer>

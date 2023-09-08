@@ -1,5 +1,5 @@
 import { Button, Typography } from '@mui/material';
-import i18next from 'i18next';
+import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { counterSelectors, decrement, increment } from 'store';
@@ -24,17 +24,21 @@ export const Counter = () => {
         variant="outlined"
         size="small"
         disabled={disabled}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore https://github.com/reduxjs/redux-toolkit/issues/1421
         onClick={() => dispatch(decrement())}
       >
         -
       </Button>
       <Typography>
-        {i18next.t('counter.counter')}: {disabled ? '-' : value}
+        {t('counter.counter')}: {disabled ? '-' : value}
       </Typography>
       <Button
         variant="outlined"
         size="small"
         disabled={disabled}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore https://github.com/reduxjs/redux-toolkit/issues/1421
         onClick={() => dispatch(increment())}
       >
         +

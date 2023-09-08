@@ -6,8 +6,8 @@ export const useApi = <T>(url: string) => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     void axiosInstance
-      .get(url)
-      .then(data => {
+      .get<T>(url)
+      .then(({ data }) => {
         setResult(data);
       })
       .finally(() => setIsLoading(false));
