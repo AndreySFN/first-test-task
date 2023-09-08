@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
@@ -23,6 +24,7 @@ export const useInitialize = () => {
           navigate(`/${navigator.language}`);
         else navigate(langList?.find(lang => lang?.lng_default === 1).lng);
       }
+      i18next.changeLanguage(locale);
       setIsLoaded(true);
     });
   }, []);

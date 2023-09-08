@@ -1,1 +1,1 @@
-export { useChangeLocaleParam } from './useChangeLocaleParam';
+export { useChangeLanguage } from './useChangeLanguage';

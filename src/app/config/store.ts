@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { counterReducer, languageReducer, staticInterfaceReducer } from '../../store';
+import { counterReducer, languageReducer, staticInterfaceReducer } from 'store';
 
 const rootReducer = combineReducers({
   staticInterfaceData: staticInterfaceReducer,

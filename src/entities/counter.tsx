@@ -1,4 +1,6 @@
 import { Button, Typography } from '@mui/material';
+import i18next from 'i18next';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { counterSelectors, decrement, increment } from 'store';
 import styled from 'styled-components';
@@ -12,22 +14,27 @@ const CounterContainer = styled.div({
 export const Counter = () => {
   const dispatch = useDispatch();
   const value = useSelector(counterSelectors.counter);
-  //TODO: Локализация
+  const [disabled, setDisabled] = useState(!Number.isFinite(Number(value)));
+  useEffect(() => {
+    setDisabled(!Number.isFinite(Number(value)));
+  }, [value]);
   return (
     <CounterContainer>
       <Button
         variant="outlined"
         size="small"
-        disabled={!value}
+        disabled={disabled}
         onClick={() => dispatch(decrement())}
       >
         -
       </Button>
-      <Typography>counter: {value || '-'}</Typography>
+      <Typography>
+        {i18next.t('counter.counter')}: {disabled ? '-' : value}
+      </Typography>
       <Button
         variant="outlined"
         size="small"
-        disabled={!value}
+        disabled={disabled}
         onClick={() => dispatch(increment())}
       >
         +

@@ -1,8 +1,7 @@
+import { About, Container, Error, Error404, Home, Info, Initializer } from 'pages';
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { About, Error404, Home, Info, Container, Initializer, Error } from 'pages';
 
-//TODO: Сменить на CreateRouter (или типа того)
 export const Routing = () => {
   return (
     <RouterProvider

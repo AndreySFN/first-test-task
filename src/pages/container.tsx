@@ -1,11 +1,11 @@
 import { Box } from '@mui/material';
 import { Counter } from 'entities';
-import { Menu } from 'widgets';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet, useParams } from 'react-router-dom';
 import { fetchStaticInterfaceData } from 'store';
 import styled from 'styled-components';
+import { Menu } from 'widgets';
 
 const MainContainer = styled.div({
   width: '100%',

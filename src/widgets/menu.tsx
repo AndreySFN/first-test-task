@@ -1,5 +1,6 @@
 import { Button } from '@mui/material';
 import { LanguageChanger } from 'features';
+import i18next from 'i18next';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
@@ -27,13 +28,13 @@ export const Menu = () => {
       <Navigation>
         {/*TODO: Поменять на Link?*/}
         <Button variant="text" onClick={() => navigate(`/${locale}`)}>
-          home
+          {i18next.t('menu.home')}
         </Button>
         <Button variant="text" onClick={() => navigate(`/${locale}/about`)}>
-          about
+          {i18next.t('menu.about')}
         </Button>
         <Button variant="text" onClick={() => navigate(`/${locale}/info`)}>
-          info
+          {i18next.t('menu.info')}
         </Button>
       </Navigation>
       <LanguageChanger />

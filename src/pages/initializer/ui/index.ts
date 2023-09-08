@@ -1,1 +1,1 @@
-export { Initializer } from './Initializer'
+export { Initializer } from './Initializer';
