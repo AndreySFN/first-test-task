@@ -1,3 +1,3 @@
-export * from '../features/language-changer/ui/language-changer';
-export * from '../features/counter';
+export * from './full-size-spinner';
+export * from './counter';
 export * from './page';

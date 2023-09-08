@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
+import { FullSizeSpinner } from 'entities';
 import { useSelector } from 'react-redux';
-import { staticInterfaceSelectors } from '../store/';
-import { FullSizeSpinner } from './full-size-spinner';
+import { staticInterfaceSelectors } from 'store';
 
 export interface PageProps {
   text?: string;

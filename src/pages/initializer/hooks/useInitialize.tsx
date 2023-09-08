@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { Outlet, useParams } from 'react-router-dom';
-import { FullSizeSpinner } from '../entities/full-size-spinner';
-import { getAvailableLanguages } from '../shared/api';
-import { setLangList } from '../store';
+import { useParams } from 'react-router-dom';
+import { getAvailableLanguages } from 'shared/api';
+import { setLangList } from 'store';
 
-export const Initializer = () => {
+export const useInitialize = () => {
   const dispatch = useDispatch();
   const { locale } = useParams();
   const navigate = useNavigate();
@@ -27,5 +26,5 @@ export const Initializer = () => {
       setIsLoaded(true);
     });
   }, []);
-  return isLoaded ? <Outlet /> : <FullSizeSpinner />;
+  return { isLoaded };
 };

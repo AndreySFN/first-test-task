@@ -1,8 +1,8 @@
 import { Button } from '@mui/material';
+import { LanguageChanger } from 'features';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { LanguageChanger } from '../entities';
 
 const MenuContainer = styled.div({
   display: 'flex',

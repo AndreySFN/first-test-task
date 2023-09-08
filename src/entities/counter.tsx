@@ -1,7 +1,7 @@
 import { Button, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
+import { counterSelectors, decrement, increment } from 'store';
 import styled from 'styled-components';
-import { counterSelectors, decrement, increment } from '../store';
 
 const CounterContainer = styled.div({
   display: 'flex',

@@ -2,8 +2,8 @@ import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { LangDTO } from '../../../shared/api/dto';
-import { languageSelectors } from '../../../store';
+import { LangDTO } from 'shared/api';
+import { languageSelectors } from 'store';
 import { useChangeLocaleParam } from '../hooks';
 
 export const LanguageChanger = () => {
