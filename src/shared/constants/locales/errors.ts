@@ -27,3 +27,10 @@ export const errorDe: ErrorLangType = {
   caption404: 'Sie scheinen auf eine nicht vorhandene Seite gelangt zu sein',
   advice404: 'Überprüfen Sie, ob die eingegebene URL korrekt ist',
 };
+export const errorUk: ErrorLangType = {
+  error: 'Уууупс... Помилка',
+  unknownError: 'невідома помилка',
+  error404: 'Уууупс... помилка 404',
+  caption404: 'Здається Ви потрапили на неіснуючу сторінку',
+  advice404: 'Перевірте правильність введеної URL-адреси',
+};

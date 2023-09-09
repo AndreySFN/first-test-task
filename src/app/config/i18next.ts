@@ -3,17 +3,21 @@ import {
   counterDe,
   counterEn,
   counterRu,
+  counterUk,
   errorDe,
   errorEn,
   errorRu,
+  errorUk,
   menuDe,
   menuEn,
   menuRu,
+  menuUk,
 } from 'shared/constants/locales';
 import {
   languageChangerDe,
   languageChangerEn,
   languageChangerRu,
+  languageChangerUk,
 } from '../../shared/constants/locales/language-changer';
 
 void i18next.init(
@@ -42,6 +46,14 @@ void i18next.init(
           counter: counterDe,
           language: languageChangerDe,
           error: errorDe,
+        },
+      },
+      uk: {
+        translation: {
+          menu: menuUk,
+          counter: counterUk,
+          language: languageChangerUk,
+          error: errorUk,
         },
       },
     },

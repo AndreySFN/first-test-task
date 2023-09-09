@@ -11,7 +11,7 @@ export const menuEn: MenuLangType = {
 };
 
 export const menuRu: MenuLangType = {
-  home: 'Домашняя страницы',
+  home: 'Домашняя страница',
   about: 'О нас',
   info: 'Информация',
 };
@@ -19,4 +19,9 @@ export const menuDe: MenuLangType = {
   home: 'Homepage',
   about: 'Über uns',
   info: 'Information',
+};
+export const menuUk: MenuLangType = {
+  home: 'Домашня сторінка',
+  about: 'Про нас',
+  info: 'Інформація',
 };

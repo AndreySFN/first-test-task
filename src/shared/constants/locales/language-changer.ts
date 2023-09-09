@@ -11,3 +11,6 @@ export const languageChangerRu: LanguageChangerLangType = {
 export const languageChangerDe: LanguageChangerLangType = {
   language: 'Sprache',
 };
+export const languageChangerUk: LanguageChangerLangType = {
+  language: 'мова',
+};

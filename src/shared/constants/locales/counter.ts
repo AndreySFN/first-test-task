@@ -11,3 +11,6 @@ export const counterRu: CounterLangType = {
 export const counterDe: CounterLangType = {
   counter: 'zaehler',
 };
+export const counterUk: CounterLangType = {
+  counter: 'лічильник',
+};
