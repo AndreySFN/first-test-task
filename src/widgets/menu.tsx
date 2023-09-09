@@ -1,6 +1,8 @@
+import HomeIcon from '@mui/icons-material/Home';
+import InfoIcon from '@mui/icons-material/Info';
+import PeopleIcon from '@mui/icons-material/People';
 import { Button } from '@mui/material';
 import { LanguageChanger } from 'features';
-import { t } from 'i18next';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
@@ -26,13 +28,13 @@ export const Menu = () => {
     <MenuContainer>
       <Navigation>
         <Button variant="text" onClick={() => navigate(`/${locale}`)}>
-          {t('menu.home')}
+          <HomeIcon />
         </Button>
         <Button variant="text" onClick={() => navigate(`/${locale}/about`)}>
-          {t('menu.about')}
+          <PeopleIcon />
         </Button>
         <Button variant="text" onClick={() => navigate(`/${locale}/info`)}>
-          {t('menu.info')}
+          <InfoIcon />
         </Button>
       </Navigation>
       <LanguageChanger />

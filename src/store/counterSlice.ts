@@ -2,23 +2,35 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'app';
 
 export interface CounterState {
-  value: number | null;
+  [CounterStates.ABOUT]?: number | null;
+  [CounterStates.HOME]?: number | null;
+  [CounterStates.INFO]?: number | null;
+}
+
+export enum CounterStates {
+  HOME,
+  INFO,
+  ABOUT,
 }
 
 const counterSlice = createSlice({
   name: 'counter',
-  initialState: { value: null } as CounterState,
+  initialState: {
+    [CounterStates.ABOUT]: null,
+    [CounterStates.HOME]: null,
+    [CounterStates.INFO]: null,
+  } as CounterState,
   reducers: {
-    initCounter: (state, action: PayloadAction<number>) => {
-      state.value ??= action.payload;
+    initCounter: (state, action: PayloadAction<{ state: CounterStates; value?: number }>) => {
+      state[action.payload.state] ??= action.payload.value;
     },
-    increment: state => {
-      state.value ??= 0;
-      state.value++;
+    increment: (state, action: PayloadAction<CounterStates>) => {
+      state[action.payload] ??= 0;
+      state[action.payload]++;
     },
-    decrement: state => {
-      state.value ??= 0;
-      state.value--;
+    decrement: (state, action: PayloadAction<CounterStates>) => {
+      state[action.payload] ??= 0;
+      state[action.payload]--;
     },
   },
 });
@@ -26,5 +38,7 @@ const counterSlice = createSlice({
 export const counterReducer = counterSlice.reducer;
 export const { initCounter, increment, decrement } = counterSlice.actions;
 export const counterSelectors = {
-  counter: (state: RootState): number | null => state.counter.value,
+  counter: (counterState: CounterStates) => {
+    return (state: RootState): number | null | undefined => state.counter[counterState];
+  },
 };

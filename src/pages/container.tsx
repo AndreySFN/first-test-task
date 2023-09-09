@@ -1,6 +1,5 @@
 import { Box } from '@mui/material';
 import { AppDispatch } from 'app';
-import { Counter } from 'entities';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet, useParams } from 'react-router-dom';
@@ -30,7 +29,6 @@ export const Container = () => {
           <Menu />
           <Outlet />
         </Box>
-        <Counter />
       </>
     </MainContainer>
   );

@@ -1,8 +1,7 @@
 import { Button, Typography } from '@mui/material';
-import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { counterSelectors, decrement, increment } from 'store';
+import { counterSelectors, CounterStates, decrement, increment } from 'store';
 import styled from 'styled-components';
 
 const CounterContainer = styled.div({
@@ -11,9 +10,14 @@ const CounterContainer = styled.div({
   gap: '20px',
   padding: '0 0 20px 0 ',
 });
-export const Counter = () => {
+
+export interface CounterProp {
+  counterState: CounterStates;
+}
+
+export const Counter = ({ counterState }: CounterProp) => {
   const dispatch = useDispatch();
-  const value = useSelector(counterSelectors.counter);
+  const value = useSelector(counterSelectors.counter(counterState));
   const [disabled, setDisabled] = useState(!Number.isFinite(Number(value)));
   useEffect(() => {
     setDisabled(!Number.isFinite(Number(value)));
@@ -24,18 +28,16 @@ export const Counter = () => {
         variant="outlined"
         size="small"
         disabled={disabled}
-        onClick={() => dispatch(decrement())}
+        onClick={() => dispatch(decrement(counterState))}
       >
         -
       </Button>
-      <Typography>
-        {t('counter.counter')}: {disabled ? '-' : value}
-      </Typography>
+      <Typography>{disabled ? '-' : value}</Typography>
       <Button
         variant="outlined"
         size="small"
         disabled={disabled}
-        onClick={() => dispatch(increment())}
+        onClick={() => dispatch(increment(counterState))}
       >
         +
       </Button>
