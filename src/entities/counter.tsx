@@ -24,8 +24,6 @@ export const Counter = () => {
         variant="outlined"
         size="small"
         disabled={disabled}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore https://github.com/reduxjs/redux-toolkit/issues/1421
         onClick={() => dispatch(decrement())}
       >
         -
@@ -37,8 +35,6 @@ export const Counter = () => {
         variant="outlined"
         size="small"
         disabled={disabled}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore https://github.com/reduxjs/redux-toolkit/issues/1421
         onClick={() => dispatch(increment())}
       >
         +

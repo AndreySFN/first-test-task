@@ -1,14 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SliceCaseReducers } from '@reduxjs/toolkit/src/createSlice';
 import { RootState } from 'app';
 
 export interface CounterState {
   value: number | null;
 }
 
-const counterSlice = createSlice<CounterState, SliceCaseReducers<CounterState>>({
+const counterSlice = createSlice({
   name: 'counter',
-  initialState: { value: null },
+  initialState: { value: null } as CounterState,
   reducers: {
     initCounter: (state, action: PayloadAction<number>) => {
       state.value ??= action.payload;
