@@ -26,10 +26,14 @@ const counterSlice = createSlice({
     },
     increment: (state, action: PayloadAction<CounterStates>) => {
       state[action.payload] ??= 0;
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       state[action.payload]++;
     },
     decrement: (state, action: PayloadAction<CounterStates>) => {
       state[action.payload] ??= 0;
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       state[action.payload]--;
     },
   },
