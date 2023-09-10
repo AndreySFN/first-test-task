@@ -1,7 +1,14 @@
 import { About, Container, Error404, Home, Info, Initializer, ServerError } from 'pages';
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Pathes } from 'shared/constants/pathes';
+
+export enum Pathes {
+  ERROR = 'error',
+  ERROR_404 = 'error404',
+  UNKNOWN_ERROR = 'unknown/error',
+  ABOUT = 'about',
+  INFO = 'info',
+}
 
 export const Routing = () => {
   return (

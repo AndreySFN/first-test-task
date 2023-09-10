@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
 import { getAvailableLanguages } from 'shared/api';
 import { setLangList } from 'store';
-import { Pathes } from 'shared/constants/pathes';
+import { Pathes } from 'app/routing';
 
 export const useInitialize = () => {
   const dispatch = useDispatch();
