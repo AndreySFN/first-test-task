@@ -8,10 +8,10 @@ export const ServerError = () => {
   const data = searchParams.get('data');
   return (
     <Error
-      header={t('error.error')
+      header={t('n1:error.error')
         .concat(' ')
         .concat(status || '')}
-      caption={data || t('error.unknownError')}
+      caption={data || t('n1:error.unknownError')}
     />
   );
 };

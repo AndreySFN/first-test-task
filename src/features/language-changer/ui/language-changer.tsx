@@ -18,7 +18,7 @@ export const LanguageChanger = () => {
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth size="small">
-        <InputLabel>{t('language.language')}</InputLabel>
+        <InputLabel>{t('language')}</InputLabel>
         <Select value={lang} label="Language" onChange={e => setLang(e.target.value)}>
           {langList?.map(({ id, lng, lng_name }: LangDTO) => (
             <MenuItem key={id} value={lng}>

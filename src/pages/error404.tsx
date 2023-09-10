@@ -3,8 +3,8 @@ import { t } from 'i18next';
 
 export const Error404 = () => (
   <Error
-    header={t('error.error404')}
-    caption={t('error.caption404')}
-    advice={t('error.advice404')}
+    header={t('n1:error.error404')}
+    caption={t('n1:error.caption404')}
+    advice={t('n1:error.advice404')}
   />
 );

@@ -6,9 +6,12 @@ export const useChangeLanguage = () => {
   const navigate = useNavigate();
   const history = useLocation();
   return (newLocale?: string) => {
-    void changeLanguage(newLocale);
-    const newPathname = history.pathname.split('/');
-    newPathname[1] = newLocale || '';
-    navigate(newPathname.join('/'));
+    void changeLanguage(newLocale)
+      .then(() => {
+        const newPathname = history.pathname.split('/').filter(val => val.length > 0);
+        newPathname[0] = newLocale || '';
+        navigate('/'.concat(newPathname.join('/')));
+      })
+      .catch(() => navigate('/error'));
   };
 };

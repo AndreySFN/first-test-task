@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { Counter, FullSizeSpinner } from 'entities';
-import { useSelector } from 'react-redux';
-import { CounterStates, staticInterfaceSelectors } from 'store';
+import { t } from 'i18next';
+import { CounterStates } from 'store';
 import styled from 'styled-components';
 
 export interface PageProps {
@@ -18,8 +18,6 @@ const CounterContainer = styled.div({
   alignItems: 'flex-end',
 });
 export const Page = ({ title, text, counterState, isLoading = false }: PageProps) => {
-  const textTitle = useSelector(staticInterfaceSelectors.text);
-  const titleTitle = useSelector(staticInterfaceSelectors.title);
   return (
     <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', padding: '20px' }}>
       {isLoading ? (
@@ -27,10 +25,10 @@ export const Page = ({ title, text, counterState, isLoading = false }: PageProps
       ) : (
         <>
           <Typography variant="h5">
-            {titleTitle}: {title}
+            {t('title')}: {title}
           </Typography>
           <Typography variant="body1" sx={{ paddingTop: '5px' }}>
-            {textTitle}: {text}
+            {t('text')}: {text}
           </Typography>
           <CounterContainer>
             <Counter counterState={counterState} />
